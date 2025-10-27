@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-sm-12">
+<h2>Facturación Ventas</h2>
+    <app-card  [options]="false">
+      <div>
+
+          <div class="alert alert-success alert-dismissable" id="successmessage" *ngIf="mostrarMensaje_true">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <div id="scsbody">
+                            <p *ngIf="mostrarMensaje_true">
+                                <br>
+                                <span style="font-weight: bold; font-size: 18px">{{ mensaje }}</span>
+                            </p>
+                        </div>
+                </div>
+
+             <div class="alert alert-danger alert-dismissable" id="dangermessage" *ngIf="mostrarMensaje_err" >
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <div id="scsbody">
+                            <p *ngIf="mostrarMensaje_err">
+                                <br>
+                                <span style="font-weight: bold; font-size: 18px">{{ mensaje_error }}</span>
+                            </p>
+                        </div>
+                </div>
+
+      </div>
+     
+  
+      <div class="row" id="contenDiv" >
+
+        <div class="container mt-4">
+
+            <form #ventaForm="ngForm">
+              <div class="mb-3">
+                <label>Cliente</label>
+                <input type="number" class="form-control" name="id_cliente" [(ngModel)]="venta.id_cliente" required />
+              </div>
+              <div class="mb-3">
+                <label>Usuario</label>
+                <input type="number" class="form-control" name="id_usuario" [(ngModel)]="venta.id_usuario" required />
+              </div>
+              <div class="mb-3">
+                <label>Fecha</label>
+                <input type="datetime-local" class="form-control" name="fecha_venta" [(ngModel)]="venta.fecha_venta" required />
+              </div>
+
+              <h5>Detalle de Productos</h5>
+                <div *ngFor="let item of venta.detalles; let i = index" class="border p-2 mb-2">
+
+                  <label>Producto</label>
+                  <input type="number" class="form-control" [(ngModel)]="item.id_producto" name="id_producto{{i}}" required />
+
+                  <label>Cantidad</label>
+                  <input type="number" class="form-control" [(ngModel)]="item.cantidad" name="cantidad{{i}}" required />
+
+                  <label>Precio Unitario</label>
+                  <input type="number" class="form-control" [(ngModel)]="item.precio_unitario" name="precio_unitario{{i}}" required />
+
+                   <label>Precio Total</label>
+                  <input type="number" class="form-control" [(ngModel)]="item.precio_total" name="precio_total{{i}}" required />
+
+                  <button class="btn btn-danger mt-2" (click)="eliminarDetalle(i)">Eliminar</button>
+
+                </div>
+
+                <div class="col-md-6">
+                <div class="form-group row">
+
+                        <div class="col-md-12"> 
+
+                            <button  type="button" title="Guardar Cliente" class="btn btn-secondary btn-ms" id="btnGuardar" 
+                                  (click)="agregarDetalle()"
+                                  style="margin-right: 5px; margin-top: 5px; font-weight: bold" >  
+                                    <i class="feather icon-save"></i> AGREGAR PRODUCTO
+                            </button> 
+                            
+                            <button title="Actualizar Cliente" class="btn btn-primary" id="btnProcesar" 
+                                style="margin-right: 5px; margin-top: 5px; font-weight: bold"  > 
+                                        <i class="feather icon-refresh-cw"></i> REGISTRAR VENTA
+                            </button>
+
+                        </div>
+                </div>                                           
+            </div> 
+
+          </form>
+
+        </div>
+      </div>
+
+    </app-card>
+  </div>
+
+</div>

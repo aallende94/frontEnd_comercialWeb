@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-12">
+<h2>Estado de Caja</h2>
+    <app-card  [options]="false">
+    
+      <div class="row" id="contenDiv" >
+
+        <div class="container mt-4">
+  <h3>Estado Actual de la Caja</h3>
+
+        <div *ngIf="cajaActual; else sinCaja">
+          <div class="card">
+            <div class="card-body">
+              <p><strong>ID Caja:</strong> {{ cajaActual.id_caja }}</p>
+              <p><strong>Usuario:</strong> {{ cajaActual.nombre_usuario }}</p>
+              <p><strong>Fecha Apertura:</strong> {{ cajaActual.fecha_apertura }}</p>
+              <p><strong>Monto Apertura:</strong> {{ cajaActual.monto_apertura | currency }}</p>
+              <p><strong>Estado:</strong> {{ cajaActual.estado }}</p>
+              <p *ngIf="cajaActual.estado === 'cerrada'">
+                <strong>Fecha Cierre:</strong> {{ cajaActual.fecha_cierre }}<br>
+                <strong>Monto Cierre:</strong> {{ cajaActual.monto_cierre | currency }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #sinCaja>
+          <div class="alert alert-warning">No hay caja abierta actualmente.</div>
+        </ng-template>
+      </div>
+
+      </div>
+
+    </app-card>
+  </div>
+
+</div>

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-12">
+<h2>Control de Stock</h2>
+    <app-card  [options]="false">
+    
+      <div class="row" id="contenDiv" >
+
+        <div class="container mt-4">
+
+            <table class="table table-bordered table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Producto</th>
+                  <th>Fecha Actualización</th>
+                  <th>Stock Actual</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of inventario">
+                  <td>{{ item.id_inventario }}</td>
+                  <td>{{ item.nombre_producto }}</td>
+                  <td>{{ item.fecha_actualizacion }}</td>
+                  <td>{{ item.stock_actual }}</td>
+                </tr>
+              </tbody>
+            </table>
+  
+        </div>
+      </div>
+
+    </app-card>
+  </div>
+
+</div>

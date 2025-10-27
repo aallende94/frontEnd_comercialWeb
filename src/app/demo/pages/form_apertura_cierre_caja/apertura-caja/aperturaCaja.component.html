@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-12">
+<h2>Apertura de Caja</h2>
+    <app-card  [options]="false">
+    
+      <div class="row" id="contenDiv" >
+
+        <div class="container mt-4">
+
+           <form (ngSubmit)="abrirCaja()">
+              <label>Monto de apertura</label>
+              <input type="number" name="monto_apertura" required />
+              <button type="submit">Abrir caja</button>
+          </form>
+  
+        </div>
+      </div>
+
+    </app-card>
+  </div>
+
+</div>

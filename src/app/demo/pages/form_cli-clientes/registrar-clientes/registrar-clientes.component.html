@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-sm-12">
+<h2>Registro de Cliente</h2>
+    <app-card  [options]="false">
+      <div>
+
+          <div class="alert alert-success alert-dismissable" id="successmessage" *ngIf="mostrarMensaje_true">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <div id="scsbody">
+                            <p *ngIf="mostrarMensaje_true">
+                                <br>
+                                <span style="font-weight: bold; font-size: 18px">{{ mensaje }}</span>
+                            </p>
+                        </div>
+                </div>
+
+             <div class="alert alert-danger alert-dismissable" id="dangermessage" *ngIf="mostrarMensaje_err" >
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <div id="scsbody">
+                            <p *ngIf="mostrarMensaje_err">
+                                <br>
+                                <span style="font-weight: bold; font-size: 18px">{{ mensaje_error }}</span>
+                            </p>
+                        </div>
+                </div>
+
+      </div>
+     
+  
+      <div class="row" id="contenDiv" >
+
+        <div class="container mt-4">
+          
+          <form  #clienteForm="ngForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="documento" class="form-label">Nro. Documento</label>
+                <input type="text" id="documento" class="form-control" name="nro_documento_cliente" 
+                (change)="onNroDocumCliente($event.target.value);" [(ngModel)]="cliente.nro_documento_cliente" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="ruc" class="form-label">RUC</label>
+                <input type="text" id="ruc" class="form-control" name="ruc_cliente" [(ngModel)]="cliente.ruc_cliente" />
+              </div>
+              
+              <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" id="nombre" class="form-control" name="nombre_cliente" [(ngModel)]="cliente.nombre_cliente" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" id="direccion" class="form-control" name="direccion_cliente" [(ngModel)]="cliente.direccion_cliente" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" name="email_cliente" [(ngModel)]="cliente.email_cliente" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select id="sexo" class="form-control form-control-sm" name="sexo_cliente" [(ngModel)]="cliente.sexo_cliente" required>
+                  <option value="" disabled selected>Seleccione</option>
+                  <option value="MASCULINO">MASCULINO</option>
+                  <option value="FEMENINO">FEMENINO</option>
+                  <option value="EMPRESA">EMPRESA</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" id="telefono" class="form-control" name="telefono_cliente" [(ngModel)]="cliente.telefono_cliente" required />
+              </div>
+            </div>
+
+            <!-- <button type="submit" class="btn btn-primary" [disabled]="!clienteForm.form.valid">Registrar</button>
+             <button type="submit" class="btn btn-success" >Actualizar</button>
+             <button type="submit" class="btn btn-danger" >Eliminar</button> -->
+
+             <div class="col-md-6">
+                <div class="form-group row">
+
+                        <div class="col-md-12"> 
+
+                            <button *ngIf="REGISTRAR" type="button" title="Guardar Cliente" class="btn btn-primary btn-ms" id="btnGuardar" (click)="registrarCliente()"
+                                  style="margin-right: 5px; margin-top: 5px; font-weight: bold" [disabled]="!clienteForm.form.valid">  
+                                    <i class="feather icon-save"></i> REGISTRAR
+                            </button> 
+                            
+                            <button *ngIf="ACTUALIZAR" title="Actualizar Cliente" class="btn btn-success btn-ms " id="btnProcesar"  (click)="actualizarCliente()"
+                                style="margin-right: 5px; margin-top: 5px; font-weight: bold"  > 
+                                        <i class="feather icon-refresh-cw"></i> ACTUALIZAR
+                            </button>
+
+                              <button *ngIf="ELIMINAR" class="btn btn-danger btn-ms" id="devolverSoli" 
+                                style="margin-right: 5px; margin-top: 5px; font-weight: bold"> 
+                                    <i class="feather icon-trash-2"></i> ELIMINAR
+                            </button>
+                          
+                        </div>
+                </div>                                           
+            </div> 
+
+          </form>
+        </div>
+      </div>
+
+    </app-card>
+  </div>
+
+</div>

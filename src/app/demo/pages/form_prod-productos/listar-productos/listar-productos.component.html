@@ -1,0 +1,54 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+          
+
+            <div class="card-body">
+                <h5 class="card-title">Informes</h5>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                            <h2>Listado de Productos</h2>
+                        <app-card  [options]="false">
+                        
+                        <div class="row" id="contenDiv" >
+
+                            <div class="container mt-4">
+
+                                <table class="table table-bordered table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>C&Oacute;DIGO</th>
+                                        <th>DESCRIPCION</th>
+                                          <th>PRECIO COMPRA</th>
+                                        <th>PRECIO VENTA</th>
+                                        <th>CATEGORIA</th>
+                                        <th>STOCK</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of listProductos">
+                                        <td>{{ item.codidgo_producto }}</td>
+                                        <td>{{ item.descripcion_producto }}</td>
+                                        <td>{{ item.precio_compra }}</td>
+                                        <td>{{ item.precio_contado_venta }}</td>
+                                        <td>{{ item.id_categoria }}</td>
+                                        <td>{{ item.stock }}</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                    
+                            </div>
+                        </div>
+
+                        </app-card>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

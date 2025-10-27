@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Registro de Productos</h2>
+
+    <app-card  [options]="false">
+
+       <div>
+
+          <div class="alert alert-success alert-dismissable" id="successmessage" *ngIf="mostrarMensaje_true">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <div id="scsbody">
+                            <p *ngIf="mostrarMensaje_true">
+                                <br>
+                                <span style="font-weight: bold; font-size: 18px">{{ mensaje }}</span>
+                            </p>
+                        </div>
+                </div>
+
+             <div class="alert alert-danger alert-dismissable" id="dangermessage" *ngIf="mostrarMensaje_err" >
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <div id="scsbody">
+                            <p *ngIf="mostrarMensaje_err">
+                                <br>
+                                <span style="font-weight: bold; font-size: 18px">{{ mensaje_error }}</span>
+                            </p>
+                        </div>
+                </div>
+
+      </div>
+    
+      <div class="row" id="contenDiv" >
+            
+
+       <div class="container mt-4">
+          <form  #productoForm="ngForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cod_producto" class="form-label">C&oacute;digo</label>
+                <input type="text" id="cod_producto" class="form-control" name="cod_producto" [(ngModel)]="cod_producto" />
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="descripcion" class="form-label">Descripción del Producto</label>
+                <textarea id="descripcion_producto" class="form-control" name="descripcion_producto" [(ngModel)]="descripcion_producto" rows="2" required></textarea>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="precioCompra" class="form-label">Precio de Compra</label>
+                <input type="number" id="precio_compra" class="form-control" name="precio_compra" [(ngModel)]="precio_compra" required />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="precioVenta" class="form-label">Precio Contado Venta</label>
+                <input type="number" id="precio_contado_venta" class="form-control" name="precio_contado_venta" [(ngModel)]="precio_contado_venta" required />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" id="stock" class="form-control" name="stock" [(ngModel)]="stock" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="categoria" class="form-label">Categorías</label>
+                    <select class="form-control form-control-sm" id="id_categoria" name="id_categoria" #id_cat>
+                      <option *ngFor="let i of categorias" [value]="i.id_categoria">{{i.nombre_categoria}}</option>
+                    </select>
+
+                 
+                <!-- <input type="text" id="categoria" class="form-control" name="id_categoria" [(ngModel)]="id_categoria" required /> -->
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="proveedor" class="form-label">Proveedor</label>
+                    <select class="form-control form-control-sm" id="id_proveedor" name="id_proveedor" #id_prov>
+                    <option  *ngFor="let i of proveedores" [value]="i.id_proveedor" >{{i.nombre_proveedor}}</option>
+                  </select>
+              </div>
+              <!-- <div class="col-md-4 mb-3">
+                <label for="docFactura" class="form-label">Documento Factura</label>
+                <input type="text" id="docFactura" class="form-control" name="documento_factura" [(ngModel)]="producto.documento_factura" required />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="nombreFactura" class="form-label">Nombre Factura</label>
+                <input type="text" id="nombreFactura" class="form-control" name="nombre_factura" [(ngModel)]="producto.nombre_factura" required />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="emailFactura" class="form-label">Email Factura</label>
+                <input type="email" id="emailFactura" class="form-control" name="email_factura" [(ngModel)]="producto.email_factura" required />
+              </div> -->
+            </div>
+            <!-- <button type="submit" class="btn btn-success" [disabled]="!productoForm.form.valid">Registrar Producto</button> -->
+              <div class="col-md-6">
+                <div class="form-group row">
+
+                        <div class="col-md-12"> 
+
+                            <button  type="button" title="Guardar Cliente" class="btn btn-primary btn-ms" id="btnGuardar" (click)="registrarProducto()"
+                                  style="margin-right: 5px; margin-top: 5px; font-weight: bold" [disabled]="!productoForm.form.valid">  
+                                    <i class="feather icon-save"></i> REGISTRAR
+                            </button> 
+                            
+                            <button title="Actualizar Cliente" class="btn btn-success btn-ms " id="btnProcesar" 
+                                style="margin-right: 5px; margin-top: 5px; font-weight: bold"  > 
+                                        <i class="feather icon-refresh-cw"></i> ACTUALIZAR
+                            </button>
+
+                              <button class="btn btn-danger btn-ms" id="devolverSoli" 
+                                style="margin-right: 5px; margin-top: 5px; font-weight: bold"> 
+                                    <i class="feather icon-trash-2"></i> ELIMINAR
+                            </button>
+                          
+                        </div>
+                </div>                                           
+            </div> 
+          </form>
+      </div>
+
+        
+      </div>   
+    </app-card>
+  </div>
+
+</div>

@@ -1,0 +1,52 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+          
+
+            <div class="card-body">
+                <h5 class="card-title">Informes</h5>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                            <h2>Listado de Clientes</h2>
+                        <app-card  [options]="false">
+                        
+                        <div class="row" id="contenDiv" >
+
+                            <div class="container mt-4">
+
+                                <table class="table table-bordered table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>C&Oacute;DIGO</th>
+                                        <th>NRO. DOCUMENTO</th>
+                                        <th>RUC</th>
+                                        <th>NOMBRE</th>
+                                        <th>EMAIL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of listClientes">
+                                        <td>{{ item.id_cliente }}</td>
+                                        <td>{{ item.nro_documento_cliente }}</td>
+                                        <td>{{ item.ruc_cliente }}</td>
+                                        <td>{{ item.nombre_cliente }}</td>
+                                        <td>{{ item.email_cliente }}</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                    
+                            </div>
+                        </div>
+
+                        </app-card>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

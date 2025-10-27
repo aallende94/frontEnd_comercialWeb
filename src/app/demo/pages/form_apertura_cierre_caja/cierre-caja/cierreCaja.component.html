@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-12">
+<h2>Cierre de Caja</h2>
+    <app-card  [options]="false">
+    
+      <div class="row" id="contenDiv" >
+
+        <div class="container mt-4">
+
+          <form (ngSubmit)="cerrarCaja()">
+            <label>Monto de cierre</label>
+            <input type="number"  name="monto_cierre" required />
+            <button type="submit">Cerrar caja</button>
+          </form>
+  
+        </div>
+      </div>
+
+    </app-card>
+  </div>
+
+</div>
